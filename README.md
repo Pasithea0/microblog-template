@@ -13,6 +13,7 @@ Preview: https://pasithea0.github.io/microblog-template/
 - Reading time calculation for each post
 - Tag-based topic pages
 - Responsive design for mobile and desktop
+- Static site generation for GitHub Pages
 
 ## Getting Started
 
