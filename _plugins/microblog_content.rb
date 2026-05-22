@@ -19,9 +19,15 @@ module Jekyll
           filename = File.basename(full_path)
           alt_text = filename
         end
+
+        site = @context.registers[:site]
+        baseurl = site.baseurl.to_s
+        src = File.join(baseurl, "assets", "attachments", filename).gsub(%r{/+}, "/")
+        src = "/#{src}" unless src.start_with?("/")
+        alt_text = alt_text.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub("\"", "&quot;")
         
         # Create proper HTML img tag
-        "<img src=\"/assets/attachments/#{filename}\" alt=\"#{alt_text}\">"
+        "<img src=\"#{src}\" alt=\"#{alt_text}\">"
       end
       
       # Extract all img tags and replace them with placeholders

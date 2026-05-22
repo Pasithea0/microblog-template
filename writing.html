@@ -31,18 +31,18 @@ description: Ideas, essays, and projects by Cüppa. Latest writing on technology
 
   <hr class="mn2 ms2">
 
-  <p class="muted font-ui"><a href="/topics" class="muted internal-link">Topics</a></p>
+  <p class="muted font-ui"><a href="{{ '/topics' | relative_url }}" class="muted internal-link">Topics</a></p>
 
   {% assign all_tags = site.writing | map: 'tags' | flatten | uniq | sort %}
   <div class="line-height-loose">
     {% for tag in all_tags %}
-      <a href="/topics/{{ tag | slugify }}" class="internal-link">{{ tag }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
+      <a href="{{ '/topics/' | relative_url }}{{ tag | slugify }}" class="internal-link">{{ tag }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
     {% endfor %}
   </div>
 
   <hr class="mn2 ms2">
 
-  <p class="muted font-ui"><a href="/writing" class="muted internal-link">Writing</a></p>
+  <p class="muted font-ui"><a href="{{ '/writing' | relative_url }}" class="muted internal-link">Writing</a></p>
 
   <ul class="list-plain tabular-nums">
     {% for note in site.writing %}

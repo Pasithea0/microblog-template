@@ -22,18 +22,26 @@ module Jekyll
         full_path = $1
         alt_text = $2.strip
         filename = File.basename(full_path)
+        baseurl = @config['baseurl'].to_s
+        src = File.join(baseurl, "assets", "attachments", filename).gsub(%r{/+}, "/")
+        src = "/#{src}" unless src.start_with?("/")
+        alt_text = alt_text.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub("\"", "&quot;")
         
         # Create proper HTML img tag
-        "<img src=\"/assets/attachments/#{filename}\" alt=\"#{alt_text}\">"
+        "<img src=\"#{src}\" alt=\"#{alt_text}\">"
       end
       
       # Then, handle simple syntax: ![[path]]
       content = content.gsub(/!\[\[([^\]]*\/attachments\/[^\]]+)\]\]/) do |match|
         full_path = $1
         filename = File.basename(full_path)
+        baseurl = @config['baseurl'].to_s
+        src = File.join(baseurl, "assets", "attachments", filename).gsub(%r{/+}, "/")
+        src = "/#{src}" unless src.start_with?("/")
+        alt_text = filename.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub("\"", "&quot;")
         
         # Create proper HTML img tag
-        "<img src=\"/assets/attachments/#{filename}\" alt=\"#{filename}\">"
+        "<img src=\"#{src}\" alt=\"#{alt_text}\">"
       end
       
       content

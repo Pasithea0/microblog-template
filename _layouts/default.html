@@ -106,26 +106,26 @@
       <span class="flex-grow">
           <a class="internal-link plain" href="{{ '/' | relative_url }}">{{ site.title }}</a>
           {% if page.layout == 'post' %}
-              <span class="faint">/</span> <a href="/writing" class="muted plain">Writing</a>
+              <span class="faint">/</span> <a href="{{ '/writing' | relative_url }}" class="muted plain">Writing</a>
           {% elsif page.layout == 'micro' %}
-              <span class="faint">/</span> <a href="/microblog" class="muted plain">Microblog</a>
+              <span class="faint">/</span> <a href="{{ '/microblog' | relative_url }}" class="muted plain">Microblog</a>
           {% elsif page.title == 'Topics' %}
-              <span class="faint">/</span> <a href="/topics" class="muted plain">Topics</a>
+              <span class="faint">/</span> <a href="{{ '/topics' | relative_url }}" class="muted plain">Topics</a>
           {% elsif page.title == 'Writing' %}
-              <span class="faint">/</span> <a href="/writing" class="muted plain">Writing</a>
+              <span class="faint">/</span> <a href="{{ '/writing' | relative_url }}" class="muted plain">Writing</a>
           {% elsif page.title == 'About' %}
-              <span class="faint">/</span> <a href="/about" class="muted plain">About</a>
+              <span class="faint">/</span> <a href="{{ '/about' | relative_url }}" class="muted plain">About</a>
           {% elsif page.title == 'Subscribe' %}
-              <span class="faint">/</span> <a href="/subscribe" class="muted plain">Subscribe</a>
+              <span class="faint">/</span> <a href="{{ '/subscribe' | relative_url }}" class="muted plain">Subscribe</a>
           {% elsif page.title == 'Microblog' %}
-              <span class="faint">/</span> <a href="/microblog" class="muted plain">Microblog</a>
+              <span class="faint">/</span> <a href="{{ '/microblog' | relative_url }}" class="muted plain">Microblog</a>
           {% elsif page.url contains '/topics/' and page.url != '/topics/' and page.url != '/topics' %}
-              <span class="faint">/</span> <a href="/topics" class="muted plain">Topics</a>
+              <span class="faint">/</span> <a href="{{ '/topics' | relative_url }}" class="muted plain">Topics</a>
           {% endif %}
       </span>
       <span class="ssr ssl nav-links">
-          <a href="/microblog" class="muted plain ssr nav-link">Microblog</a>
-          <a href="/about" class="muted plain nav-link">About</a>
+          <a href="{{ '/microblog' | relative_url }}" class="muted plain ssr nav-link">Microblog</a>
+          <a href="{{ '/about' | relative_url }}" class="muted plain nav-link">About</a>
           <!-- <a href="/now" class="muted plain ssl">Now</a> -->
       </span>
       <div class="theme-controls">
@@ -153,7 +153,7 @@
     <footer>
       <div class="pn2 bt">
         <p style="display: flex; justify-content: space-between; width: 100%; font-size: 0.8em;">
-          <span><a href="mailto:{{ site.email }}{% if page.layout == 'post' or page.layout == 'micro' %}?subject=Re: {{ page.title | url_encode }}&body=See my PGP key! {{ site.url }}/pgp/{% else %}?subject=Contact from {{ site.title }}&body=See my PGP key! {{ site.url }}/pgp/{% endif %}" class="internal-link">email me</a> <span class="faint">/</span> <a href="/subscribe" class="internal-link">subscribe</a></span>
+          <span><a href="mailto:{{ site.email }}{% if page.layout == 'post' or page.layout == 'micro' %}?subject=Re: {{ page.title | url_encode }}&body=See my PGP key! {{ '/pgp/' | absolute_url }}{% else %}?subject=Contact from {{ site.title }}&body=See my PGP key! {{ '/pgp/' | absolute_url }}{% endif %}" class="internal-link">email me</a> <span class="faint">/</span> <a href="{{ '/subscribe' | relative_url }}" class="internal-link">subscribe</a></span>
           <span style="text-align: right;"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" class="internal-link">CC BY-NC 4.0</a> unless otherwise noted</span>
         </p>
       </div>

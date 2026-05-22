@@ -9,7 +9,7 @@ title: Topics
   <div class="pn1">
     {% assign all_tags = site.writing | map: 'tags' | flatten | uniq | sort %}
     {% for tag in all_tags %}
-      <a href="/topics/{{ tag | slugify }}" class="internal-link">{{ tag }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
+      <a href="{{ '/topics/' | relative_url }}{{ tag | slugify }}" class="internal-link">{{ tag }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
     {% endfor %}
   </div>
 </div>

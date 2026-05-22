@@ -18,7 +18,7 @@ title: Microblog
               {% assign date_parts = post.created | split: '-' %}
               {{ date_parts[1] }}/{{ date_parts[2] }}/{{ date_parts[0] }}
             </time>
-            <a href="{{ post.url }}" class="microblog-permalink" title="Permalink">→</a>
+            <a href="{{ post.url | relative_url }}" class="microblog-permalink" title="Permalink">→</a>
           </div>
         </article>
       {% endfor %}

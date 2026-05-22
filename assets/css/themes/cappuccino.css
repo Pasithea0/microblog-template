@@ -3,7 +3,7 @@
 /* Charter eInk Font Import */
 @font-face {
   font-family: 'Charter eInk';
-  src: url('/assets/misc/Charter_eInk/ChartereInk-Regular.ttf') format('truetype');
+  src: url('../../misc/Charter_eInk/ChartereInk-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Charter eInk';
-  src: url('/assets/misc/Charter_eInk/ChartereInk-Italic.ttf') format('truetype');
+  src: url('../../misc/Charter_eInk/ChartereInk-Italic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: 'Charter eInk';
-  src: url('/assets/misc/Charter_eInk/ChartereInk-Bold.ttf') format('truetype');
+  src: url('../../misc/Charter_eInk/ChartereInk-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -27,7 +27,7 @@
 
 @font-face {
   font-family: 'Charter eInk';
-  src: url('/assets/misc/Charter_eInk/ChartereInk-BoldItalic.ttf') format('truetype');
+  src: url('../../misc/Charter_eInk/ChartereInk-BoldItalic.ttf') format('truetype');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
