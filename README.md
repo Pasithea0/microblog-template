@@ -52,7 +52,6 @@ Start the development server with live reload:
 ```bash
 pnpm run dev
 ```
-```
 
 The site will be available at `http://localhost:4000`
 
