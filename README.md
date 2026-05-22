@@ -99,6 +99,6 @@ Start by editing `_config.yml` to set your site's title, description, and other 
 ### Bonus Features
 - robots.txt and RSL standard to reject AI scraping/indexing
 - PGP page to share your public key
-- Two separate RSS and Atom feeds for long-form writings and microblog posts
+- Two separate RSS feeds for long-form writings and microblog posts
 - Multiple CSS styles, including a Minecraft theme
 - Email button that acts as a "comment" button, linking to the current post
