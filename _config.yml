@@ -1,0 +1,60 @@
+# Site settings
+title: "Cüppa"
+description: "Ideas, essays, and projects by Cüppa"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+email: "your-email@example.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Kramdown configuration
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+plugins:
+  - jekyll-feed
+
+# Collections
+collections:
+  writing:
+    output: true
+    permalink: /:name/
+    sort_by: date_priority
+  pages:
+    output: true
+    permalink: /:name/
+  microblog:
+    output: true
+    permalink: /microblog/:year-:month-:day-:name/
+    sort_by: created
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - .bundle/
+  - package.json
+  - package-lock.json
+  - pnpm-lock.yaml

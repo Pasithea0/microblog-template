@@ -1,0 +1,214 @@
+/* Aurora Theme - Vibrant color palette inspired by northern lights */
+
+/* Faustina Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Aurora Color Palette */
+:root {
+  --aurora-black: #0A0A0B;
+  --aurora-black-rgb: 10,10,11;
+  --aurora-paper: #F8FAFC;
+  --aurora-paper-rgb: 248,250,252;
+  --aurora-200-rgb: 203,213,225;
+  --aurora-50: #F1F5F9;
+  --aurora-100: #E2E8F0;
+  --aurora-150: #CBD5E1;
+  --aurora-200: #94A3B8;
+  --aurora-300: #64748B;
+  --aurora-400: #475569;
+  --aurora-500: #334155;
+  --aurora-600: #1E293B;
+  --aurora-700: #0F172A;
+  --aurora-800: #020617;
+  --aurora-850: #0A0A0B;
+  --aurora-900: #0A0A0B;
+  --aurora-950: #0A0A0B;
+  --aurora-red-50: #FEF2F2;
+  --aurora-red-100: #FEE2E2;
+  --aurora-red-150: #FECACA;
+  --aurora-red-200: #FCA5A5;
+  --aurora-red-300: #F87171;
+  --aurora-red-400: #EF4444;
+  --aurora-red-500: #DC2626;
+  --aurora-red-600: #B91C1C;
+  --aurora-red-700: #991B1B;
+  --aurora-red-800: #7F1D1D;
+  --aurora-red-850: #6B1A1A;
+  --aurora-red-900: #5A1616;
+  --aurora-red-950: #3F0F0F;
+  --aurora-orange-50: #FFF7ED;
+  --aurora-orange-100: #FFEDD5;
+  --aurora-orange-150: #FED7AA;
+  --aurora-orange-200: #FDBA74;
+  --aurora-orange-300: #FB923C;
+  --aurora-orange-400: #F97316;
+  --aurora-orange-500: #EA580C;
+  --aurora-orange-600: #DC2626;
+  --aurora-orange-700: #B45309;
+  --aurora-orange-800: #92400E;
+  --aurora-orange-850: #78350F;
+  --aurora-orange-900: #451A03;
+  --aurora-orange-950: #2D1B00;
+  --aurora-yellow-50: #FEFCE8;
+  --aurora-yellow-100: #FEF3C7;
+  --aurora-yellow-150: #FDE68A;
+  --aurora-yellow-200: #FCD34D;
+  --aurora-yellow-300: #FBBF24;
+  --aurora-yellow-400: #F59E0B;
+  --aurora-yellow-500: #D97706;
+  --aurora-yellow-600: #B45309;
+  --aurora-yellow-700: #92400E;
+  --aurora-yellow-800: #78350F;
+  --aurora-yellow-850: #451A03;
+  --aurora-yellow-900: #2D1B00;
+  --aurora-yellow-950: #1F1200;
+  --aurora-green-50: #F0FDF4;
+  --aurora-green-100: #DCFCE7;
+  --aurora-green-150: #BBF7D0;
+  --aurora-green-200: #86EFAC;
+  --aurora-green-300: #4ADE80;
+  --aurora-green-400: #22C55E;
+  --aurora-green-500: #16A34A;
+  --aurora-green-600: #15803D;
+  --aurora-green-700: #166534;
+  --aurora-green-800: #14532D;
+  --aurora-green-850: #052E16;
+  --aurora-green-900: #052E16;
+  --aurora-green-950: #052E16;
+  --aurora-cyan-50: #ECFEFF;
+  --aurora-cyan-100: #CFFAFE;
+  --aurora-cyan-150: #A5F3FC;
+  --aurora-cyan-200: #67E8F9;
+  --aurora-cyan-300: #22D3EE;
+  --aurora-cyan-400: #06B6D4;
+  --aurora-cyan-500: #0891B2;
+  --aurora-cyan-600: #0E7490;
+  --aurora-cyan-700: #155E75;
+  --aurora-cyan-800: #164E63;
+  --aurora-cyan-850: #083344;
+  --aurora-cyan-900: #083344;
+  --aurora-cyan-950: #083344;
+  --aurora-blue-50: #EFF6FF;
+  --aurora-blue-100: #DBEAFE;
+  --aurora-blue-150: #BFDBFE;
+  --aurora-blue-200: #93C5FD;
+  --aurora-blue-300: #60A5FA;
+  --aurora-blue-400: #3B82F6;
+  --aurora-blue-500: #2563EB;
+  --aurora-blue-600: #1D4ED8;
+  --aurora-blue-700: #1E40AF;
+  --aurora-blue-800: #1E3A8A;
+  --aurora-blue-850: #172554;
+  --aurora-blue-900: #172554;
+  --aurora-blue-950: #172554;
+  --aurora-purple-50: #FAF5FF;
+  --aurora-purple-100: #F3E8FF;
+  --aurora-purple-150: #E9D5FF;
+  --aurora-purple-200: #DDD6FE;
+  --aurora-purple-300: #C4B5FD;
+  --aurora-purple-400: #A78BFA;
+  --aurora-purple-500: #8B5CF6;
+  --aurora-purple-600: #7C3AED;
+  --aurora-purple-700: #6D28D9;
+  --aurora-purple-800: #5B21B6;
+  --aurora-purple-850: #4C1D95;
+  --aurora-purple-900: #4C1D95;
+  --aurora-purple-950: #4C1D95;
+  --aurora-magenta-50: #FDF2F8;
+  --aurora-magenta-100: #FCE7F3;
+  --aurora-magenta-150: #FBCFE8;
+  --aurora-magenta-200: #F9A8D4;
+  --aurora-magenta-300: #F472B6;
+  --aurora-magenta-400: #EC4899;
+  --aurora-magenta-500: #DB2777;
+  --aurora-magenta-600: #BE185D;
+  --aurora-magenta-700: #9D174D;
+  --aurora-magenta-800: #831843;
+  --aurora-magenta-850: #500724;
+  --aurora-magenta-900: #500724;
+  --aurora-magenta-950: #500724;
+}
+
+/* Aurora Light Theme */
+.theme-aurora-light {
+  --color-bg-primary: var(--aurora-paper);
+  --color-bg-primary-rgb: var(--aurora-paper-rgb);
+  --color-inverted-rgb: var(--aurora-black-rgb);
+  --color-bg-secondary: var(--aurora-50);
+  --color-tx-normal: var(--aurora-black);
+  --color-tx-normal-rgb: var(--aurora-black-rgb);
+  --color-tx-muted: var(--aurora-600);
+  --color-tx-faint: var(--aurora-300);
+  --color-ui-normal: var(--aurora-100);
+  --color-ui-hover: var(--aurora-150);
+  --color-ui-active: var(--aurora-200);
+  --color-ui-muted: var(--aurora-100);
+  --color-highlight: var(--aurora-yellow-100);
+  --color-action: var(--aurora-blue-600);
+  --color-bg-hover: var(--aurora-blue-50);
+  --color-selection: rgba(59,130,246,0.3);
+  --color-re: var(--aurora-red-600);
+  --color-re-hover: var(--aurora-red-400);
+  --color-or: var(--aurora-orange-600);
+  --color-or-hover: var(--aurora-orange-400);
+  --color-ye: var(--aurora-yellow-600);
+  --color-ye-hover: var(--aurora-yellow-400);
+  --color-gr: var(--aurora-green-600);
+  --color-gr-hover: var(--aurora-green-400);
+  --color-cy: var(--aurora-cyan-600);
+  --color-cy-hover: var(--aurora-cyan-400);
+  --color-bl: var(--aurora-blue-600);
+  --color-bl-hover: var(--aurora-blue-400);
+  --color-pu: var(--aurora-purple-600);
+  --color-pu-hover: var(--aurora-purple-400);
+  --color-ma: var(--aurora-magenta-600);
+  --color-ma-hover: var(--aurora-magenta-400);
+  
+  /* Faustina font for all text */
+  font-family: 'Faustina', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, serif;
+}
+
+/* Aurora Dark Theme */
+.theme-aurora-dark {
+  --color-bg-primary: var(--aurora-black);
+  --color-bg-primary-rgb: var(--aurora-black-rgb);
+  --color-inverted-rgb: var(--aurora-paper-rgb);
+  --color-bg-secondary: var(--aurora-950);
+  --color-tx-normal: var(--aurora-200);
+  --color-tx-normal-rgb: var(--aurora-200-rgb);
+  --color-tx-muted: var(--aurora-300);
+  --color-tx-faint: var(--aurora-700);
+  --color-ui-normal: var(--aurora-900);
+  --color-ui-hover: var(--aurora-850);
+  --color-ui-active: var(--aurora-800);
+  --color-ui-muted: var(--aurora-600);
+  --color-highlight: var(--aurora-yellow-900);
+  --color-action: var(--aurora-blue-400);
+  --color-bg-hover: var(--aurora-blue-950);
+  --color-selection: rgba(59,130,246,0.3);
+  --color-re: var(--aurora-red-400);
+  --color-re-hover: var(--aurora-red-600);
+  --color-or: var(--aurora-orange-400);
+  --color-or-hover: var(--aurora-orange-600);
+  --color-ye: var(--aurora-yellow-400);
+  --color-ye-hover: var(--aurora-yellow-600);
+  --color-gr: var(--aurora-green-400);
+  --color-gr-hover: var(--aurora-green-600);
+  --color-cy: var(--aurora-cyan-400);
+  --color-cy-hover: var(--aurora-cyan-600);
+  --color-bl: var(--aurora-blue-400);
+  --color-bl-hover: var(--aurora-blue-600);
+  --color-pu: var(--aurora-purple-400);
+  --color-pu-hover: var(--aurora-purple-600);
+  --color-ma: var(--aurora-magenta-400);
+  --color-ma-hover: var(--aurora-magenta-600);
+  
+  /* Faustina font for all text */
+  font-family: 'Faustina', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, serif;
+}
+
+/* Override font for specific elements to ensure Faustina font is used */
+.theme-aurora-light *,
+.theme-aurora-dark * {
+  font-family: 'Faustina', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, serif;
+}

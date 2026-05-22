@@ -1,0 +1,17 @@
+{
+  "name": "microblog-template",
+  "version": "1.0.0",
+  "description": "A simple microblog powered by Jekyll",
+  "author": "Pasithea0",
+  "keywords": ["jekyll", "blog", "static-site", "microblog-template", "obsidian"],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev": "JEKYLL_ENV=development bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "clean": "bundle exec jekyll clean && rm -rf assets/thumbnails",
+    "generate-thumbnails": "JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.thumbnails.yml"
+  },
+  "packageManager": "pnpm@10.15.1"
+}

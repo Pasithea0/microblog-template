@@ -1,0 +1,30 @@
+# Thumbnail generation configuration
+# This config is used only for generating thumbnails
+
+# Only run thumbnail and image encoding plugins
+plugins:
+  - jekyll-feed
+
+# Disable other plugins that aren't needed for thumbnail generation
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - .bundle/
+  - package.json
+  - package-lock.json
+  - pnpm-lock.yaml
+  - _plugins/auto_link_filter.rb
+  - _plugins/filename_title.rb
+  - _plugins/microblog_content.rb
+  - _plugins/obsidian_attachments.rb
+  - _plugins/obsidian_preprocessor.rb
+  - _plugins/reading_time.rb
+  - _plugins/topic_generator.rb

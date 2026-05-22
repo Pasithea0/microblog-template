@@ -1,0 +1,37 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:rsl="https://rslstandard.org/rsl">
+  <channel>
+    <title>{{ site.title }} - Writing</title>
+    <description>{{ site.description }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ site.url }}{{ site.baseurl }}/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.writing limit:20 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
+        <pubDate>{{ post.date_priority | date_to_rfc822 }}</pubDate>
+        {% if post.description %}
+        <description>{{ post.description | xml_escape }}</description>
+        {% else %}
+        <description>{{ post.content | strip_html | strip | xml_escape }}</description>
+        {% endif %}
+        {% if post.tags %}
+          {% for tag in post.tags %}
+            <category>{{ tag | xml_escape }}</category>
+          {% endfor %}
+        {% endif %}
+        <rsl:content url="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+          <rsl:license>
+            <rsl:prohibits type="usage">train-ai</rsl:prohibits>
+          </rsl:license>
+        </rsl:content>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

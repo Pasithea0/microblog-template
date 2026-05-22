@@ -1,0 +1,244 @@
+/* Cappuccino Theme - Warm brown and cream color palette inspired by cappuccino */
+
+/* Charter eInk Font Import */
+@font-face {
+  font-family: 'Charter eInk';
+  src: url('/assets/misc/Charter_eInk/ChartereInk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Charter eInk';
+  src: url('/assets/misc/Charter_eInk/ChartereInk-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Charter eInk';
+  src: url('/assets/misc/Charter_eInk/ChartereInk-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Charter eInk';
+  src: url('/assets/misc/Charter_eInk/ChartereInk-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cappuccino Color Palette */
+:root {
+  --cappuccino-black: #1A1612;
+  --cappuccino-black-rgb: 26,22,18;
+  --cappuccino-paper: #FDF9F5;
+  --cappuccino-paper-rgb: 253,249,245;
+  --cappuccino-200-rgb: 200,180,160;
+  --cappuccino-50: #F9F5F0;
+  --cappuccino-100: #F2EBE0;
+  --cappuccino-150: #E8DCC8;
+  --cappuccino-200: #C8B4A0;
+  --cappuccino-300: #B8A088;
+  --cappuccino-400: #A08870;
+  --cappuccino-500: #8B7358;
+  --cappuccino-600: #6B5A48;
+  --cappuccino-700: #4A3E32;
+  --cappuccino-800: #332A22;
+  --cappuccino-850: #2A221C;
+  --cappuccino-900: #221B16;
+  --cappuccino-950: #1A1612;
+  --cappuccino-red-50: #FEF2F2;
+  --cappuccino-red-100: #FEE2E2;
+  --cappuccino-red-150: #FECACA;
+  --cappuccino-red-200: #FCA5A5;
+  --cappuccino-red-300: #F87171;
+  --cappuccino-red-400: #EF4444;
+  --cappuccino-red-500: #DC2626;
+  --cappuccino-red-600: #B91C1C;
+  --cappuccino-red-700: #991B1B;
+  --cappuccino-red-800: #7F1D1D;
+  --cappuccino-red-850: #6B1A1A;
+  --cappuccino-red-900: #5A1616;
+  --cappuccino-red-950: #3F0F0F;
+  --cappuccino-orange-50: #FFF7ED;
+  --cappuccino-orange-100: #FFEDD5;
+  --cappuccino-orange-150: #FED7AA;
+  --cappuccino-orange-200: #FDBA74;
+  --cappuccino-orange-300: #FB923C;
+  --cappuccino-orange-400: #F97316;
+  --cappuccino-orange-500: #EA580C;
+  --cappuccino-orange-600: #DC2626;
+  --cappuccino-orange-700: #B45309;
+  --cappuccino-orange-800: #92400E;
+  --cappuccino-orange-850: #78350F;
+  --cappuccino-orange-900: #451A03;
+  --cappuccino-orange-950: #2D1B00;
+  --cappuccino-yellow-50: #FEFCE8;
+  --cappuccino-yellow-100: #FEF3C7;
+  --cappuccino-yellow-150: #FDE68A;
+  --cappuccino-yellow-200: #FCD34D;
+  --cappuccino-yellow-300: #FBBF24;
+  --cappuccino-yellow-400: #F59E0B;
+  --cappuccino-yellow-500: #D97706;
+  --cappuccino-yellow-600: #B45309;
+  --cappuccino-yellow-700: #92400E;
+  --cappuccino-yellow-800: #78350F;
+  --cappuccino-yellow-850: #451A03;
+  --cappuccino-yellow-900: #2D1B00;
+  --cappuccino-yellow-950: #1F1200;
+  --cappuccino-green-50: #F0FDF4;
+  --cappuccino-green-100: #DCFCE7;
+  --cappuccino-green-150: #BBF7D0;
+  --cappuccino-green-200: #86EFAC;
+  --cappuccino-green-300: #4ADE80;
+  --cappuccino-green-400: #22C55E;
+  --cappuccino-green-500: #16A34A;
+  --cappuccino-green-600: #15803D;
+  --cappuccino-green-700: #166534;
+  --cappuccino-green-800: #14532D;
+  --cappuccino-green-850: #052E16;
+  --cappuccino-green-900: #052E16;
+  --cappuccino-green-950: #052E16;
+  --cappuccino-cyan-50: #ECFEFF;
+  --cappuccino-cyan-100: #CFFAFE;
+  --cappuccino-cyan-150: #A5F3FC;
+  --cappuccino-cyan-200: #67E8F9;
+  --cappuccino-cyan-300: #22D3EE;
+  --cappuccino-cyan-400: #06B6D4;
+  --cappuccino-cyan-500: #0891B2;
+  --cappuccino-cyan-600: #0E7490;
+  --cappuccino-cyan-700: #155E75;
+  --cappuccino-cyan-800: #164E63;
+  --cappuccino-cyan-850: #083344;
+  --cappuccino-cyan-900: #083344;
+  --cappuccino-cyan-950: #083344;
+  --cappuccino-blue-50: #EFF6FF;
+  --cappuccino-blue-100: #DBEAFE;
+  --cappuccino-blue-150: #BFDBFE;
+  --cappuccino-blue-200: #93C5FD;
+  --cappuccino-blue-300: #60A5FA;
+  --cappuccino-blue-400: #3B82F6;
+  --cappuccino-blue-500: #2563EB;
+  --cappuccino-blue-600: #1D4ED8;
+  --cappuccino-blue-700: #1E40AF;
+  --cappuccino-blue-800: #1E3A8A;
+  --cappuccino-blue-850: #172554;
+  --cappuccino-blue-900: #172554;
+  --cappuccino-blue-950: #172554;
+  --cappuccino-purple-50: #FAF5FF;
+  --cappuccino-purple-100: #F3E8FF;
+  --cappuccino-purple-150: #E9D5FF;
+  --cappuccino-purple-200: #DDD6FE;
+  --cappuccino-purple-300: #C4B5FD;
+  --cappuccino-purple-400: #A78BFA;
+  --cappuccino-purple-500: #8B5CF6;
+  --cappuccino-purple-600: #7C3AED;
+  --cappuccino-purple-700: #6D28D9;
+  --cappuccino-purple-800: #5B21B6;
+  --cappuccino-purple-850: #4C1D95;
+  --cappuccino-purple-900: #4C1D95;
+  --cappuccino-purple-950: #4C1D95;
+  --cappuccino-magenta-50: #FDF2F8;
+  --cappuccino-magenta-100: #FCE7F3;
+  --cappuccino-magenta-150: #FBCFE8;
+  --cappuccino-magenta-200: #F9A8D4;
+  --cappuccino-magenta-300: #F472B6;
+  --cappuccino-magenta-400: #EC4899;
+  --cappuccino-magenta-500: #DB2777;
+  --cappuccino-magenta-600: #BE185D;
+  --cappuccino-magenta-700: #9D174D;
+  --cappuccino-magenta-800: #831843;
+  --cappuccino-magenta-850: #500724;
+  --cappuccino-magenta-900: #500724;
+  --cappuccino-magenta-950: #500724;
+}
+
+/* Cappuccino Light Theme */
+.theme-cappuccino-light {
+  --color-bg-primary: var(--cappuccino-paper);
+  --color-bg-primary-rgb: var(--cappuccino-paper-rgb);
+  --color-inverted-rgb: var(--cappuccino-black-rgb);
+  --color-bg-secondary: var(--cappuccino-50);
+  --color-tx-normal: var(--cappuccino-black);
+  --color-tx-normal-rgb: var(--cappuccino-black-rgb);
+  --color-tx-muted: var(--cappuccino-600);
+  --color-tx-faint: var(--cappuccino-300);
+  --color-ui-normal: var(--cappuccino-100);
+  --color-ui-hover: var(--cappuccino-150);
+  --color-ui-active: var(--cappuccino-200);
+  --color-ui-muted: var(--cappuccino-150);
+  --color-highlight: var(--cappuccino-yellow-100);
+  --color-action: var(--cappuccino-600);
+  --color-bg-hover: var(--cappuccino-50);
+  --color-selection: rgba(139,115,88,0.3);
+  --color-re: var(--cappuccino-red-600);
+  --color-re-hover: var(--cappuccino-red-400);
+  --color-or: var(--cappuccino-orange-600);
+  --color-or-hover: var(--cappuccino-orange-400);
+  --color-ye: var(--cappuccino-yellow-600);
+  --color-ye-hover: var(--cappuccino-yellow-400);
+  --color-gr: var(--cappuccino-green-600);
+  --color-gr-hover: var(--cappuccino-green-400);
+  --color-cy: var(--cappuccino-cyan-600);
+  --color-cy-hover: var(--cappuccino-cyan-400);
+  --color-bl: var(--cappuccino-blue-600);
+  --color-bl-hover: var(--cappuccino-blue-400);
+  --color-pu: var(--cappuccino-purple-600);
+  --color-pu-hover: var(--cappuccino-purple-400);
+  --color-ma: var(--cappuccino-magenta-600);
+  --color-ma-hover: var(--cappuccino-magenta-400);
+  
+  /* Charter eInk font for all text */
+  font-family: 'Charter eInk', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, serif;
+}
+
+/* Cappuccino Dark Theme */
+.theme-cappuccino-dark {
+  --color-bg-primary: var(--cappuccino-black);
+  --color-bg-primary-rgb: var(--cappuccino-black-rgb);
+  --color-inverted-rgb: var(--cappuccino-paper-rgb);
+  --color-bg-secondary: var(--cappuccino-950);
+  --color-tx-normal: var(--cappuccino-200);
+  --color-tx-normal-rgb: var(--cappuccino-200-rgb);
+  --color-tx-muted: var(--cappuccino-300);
+  --color-tx-faint: var(--cappuccino-700);
+  --color-ui-normal: var(--cappuccino-900);
+  --color-ui-hover: var(--cappuccino-850);
+  --color-ui-active: var(--cappuccino-800);
+  --color-ui-muted: var(--cappuccino-700);
+  --color-highlight: var(--cappuccino-yellow-900);
+  --color-action: var(--cappuccino-400);
+  --color-bg-hover: var(--cappuccino-950);
+  --color-selection: rgba(160,136,112,0.3);
+  --color-re: var(--cappuccino-red-400);
+  --color-re-hover: var(--cappuccino-red-600);
+  --color-or: var(--cappuccino-orange-400);
+  --color-or-hover: var(--cappuccino-orange-600);
+  --color-ye: var(--cappuccino-yellow-400);
+  --color-ye-hover: var(--cappuccino-yellow-600);
+  --color-gr: var(--cappuccino-green-400);
+  --color-gr-hover: var(--cappuccino-green-600);
+  --color-cy: var(--cappuccino-cyan-400);
+  --color-cy-hover: var(--cappuccino-cyan-600);
+  --color-bl: var(--cappuccino-blue-400);
+  --color-bl-hover: var(--cappuccino-blue-600);
+  --color-pu: var(--cappuccino-purple-400);
+  --color-pu-hover: var(--cappuccino-purple-600);
+  --color-ma: var(--cappuccino-magenta-400);
+  --color-ma-hover: var(--cappuccino-magenta-600);
+  
+  /* Charter eInk font for all text */
+  font-family: 'Charter eInk', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, serif;
+}
+
+/* Override font for specific elements to ensure Charter eInk font is used */
+.theme-cappuccino-light *,
+.theme-cappuccino-dark * {
+  font-family: 'Charter eInk', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, serif;
+}

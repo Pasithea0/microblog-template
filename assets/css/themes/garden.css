@@ -1,0 +1,219 @@
+/* Garden Theme - Inspired by Parsley and Perfume colors */
+
+/* Lato Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Garden Color Palette */
+:root {
+  --garden-black: #0F1A0F;
+  --garden-black-rgb: 15,26,15;
+  --garden-paper: #FDFCFE;
+  --garden-paper-rgb: 253,252,254;
+  --garden-200-rgb: 180,200,180;
+  --garden-50: #F8F9F8;
+  --garden-100: #F0F2F0;
+  --garden-150: #E8EBE8;
+  --garden-200: #B4C8B4;
+  --garden-300: #9BB09B;
+  --garden-400: #7A967A;
+  --garden-500: #5C7A5C;
+  --garden-600: #4A634A;
+  --garden-700: #3A4D3A;
+  --garden-800: #2B382B;
+  --garden-850: #232D23;
+  --garden-900: #1B221B;
+  --garden-950: #141A14;
+  --garden-parsley: #185021;
+  --garden-parsley-rgb: 24,80,33;
+  --garden-perfume: #E2B6F3;
+  --garden-perfume-dark: #693886;
+  --garden-perfume-rgb: 226,182,243;
+  --garden-red-50: #FEF2F2;
+  --garden-red-100: #FEE2E2;
+  --garden-red-150: #FECACA;
+  --garden-red-200: #FCA5A5;
+  --garden-red-300: #F87171;
+  --garden-red-400: #EF4444;
+  --garden-red-500: #DC2626;
+  --garden-red-600: #B91C1C;
+  --garden-red-700: #991B1B;
+  --garden-red-800: #7F1D1D;
+  --garden-red-850: #6B1A1A;
+  --garden-red-900: #5A1616;
+  --garden-red-950: #3F0F0F;
+  --garden-orange-50: #FFF7ED;
+  --garden-orange-100: #FFEDD5;
+  --garden-orange-150: #FED7AA;
+  --garden-orange-200: #FDBA74;
+  --garden-orange-300: #FB923C;
+  --garden-orange-400: #F97316;
+  --garden-orange-500: #EA580C;
+  --garden-orange-600: #DC2626;
+  --garden-orange-700: #B45309;
+  --garden-orange-800: #92400E;
+  --garden-orange-850: #78350F;
+  --garden-orange-900: #451A03;
+  --garden-orange-950: #2D1B00;
+  --garden-yellow-50: #FEFCE8;
+  --garden-yellow-100: #FEF3C7;
+  --garden-yellow-150: #FDE68A;
+  --garden-yellow-200: #FCD34D;
+  --garden-yellow-300: #FBBF24;
+  --garden-yellow-400: #F59E0B;
+  --garden-yellow-500: #D97706;
+  --garden-yellow-600: #B45309;
+  --garden-yellow-700: #92400E;
+  --garden-yellow-800: #78350F;
+  --garden-yellow-850: #451A03;
+  --garden-yellow-900: #2D1B00;
+  --garden-yellow-950: #1F1200;
+  --garden-green-50: #F0FDF4;
+  --garden-green-100: #DCFCE7;
+  --garden-green-150: #BBF7D0;
+  --garden-green-200: #86EFAC;
+  --garden-green-300: #4ADE80;
+  --garden-green-400: #22C55E;
+  --garden-green-500: #16A34A;
+  --garden-green-600: #15803D;
+  --garden-green-700: #166534;
+  --garden-green-800: #14532D;
+  --garden-green-850: #052E16;
+  --garden-green-900: #052E16;
+  --garden-green-950: #052E16;
+  --garden-cyan-50: #ECFEFF;
+  --garden-cyan-100: #CFFAFE;
+  --garden-cyan-150: #A5F3FC;
+  --garden-cyan-200: #67E8F9;
+  --garden-cyan-300: #22D3EE;
+  --garden-cyan-400: #06B6D4;
+  --garden-cyan-500: #0891B2;
+  --garden-cyan-600: #0E7490;
+  --garden-cyan-700: #155E75;
+  --garden-cyan-800: #164E63;
+  --garden-cyan-850: #083344;
+  --garden-cyan-900: #083344;
+  --garden-cyan-950: #083344;
+  --garden-blue-50: #EFF6FF;
+  --garden-blue-100: #DBEAFE;
+  --garden-blue-150: #BFDBFE;
+  --garden-blue-200: #93C5FD;
+  --garden-blue-300: #60A5FA;
+  --garden-blue-400: #3B82F6;
+  --garden-blue-500: #2563EB;
+  --garden-blue-600: #1D4ED8;
+  --garden-blue-700: #1E40AF;
+  --garden-blue-800: #1E3A8A;
+  --garden-blue-850: #172554;
+  --garden-blue-900: #172554;
+  --garden-blue-950: #172554;
+  --garden-purple-50: #FAF5FF;
+  --garden-purple-100: #F3E8FF;
+  --garden-purple-150: #E9D5FF;
+  --garden-purple-200: #DDD6FE;
+  --garden-purple-300: #C4B5FD;
+  --garden-purple-400: #A78BFA;
+  --garden-purple-500: #8B5CF6;
+  --garden-purple-600: #7C3AED;
+  --garden-purple-700: #6D28D9;
+  --garden-purple-800: #5B21B6;
+  --garden-purple-850: #4C1D95;
+  --garden-purple-900: #4C1D95;
+  --garden-purple-950: #4C1D95;
+  --garden-magenta-50: #FDF2F8;
+  --garden-magenta-100: #FCE7F3;
+  --garden-magenta-150: #FBCFE8;
+  --garden-magenta-200: #F9A8D4;
+  --garden-magenta-300: #F472B6;
+  --garden-magenta-400: #EC4899;
+  --garden-magenta-500: #DB2777;
+  --garden-magenta-600: #BE185D;
+  --garden-magenta-700: #9D174D;
+  --garden-magenta-800: #831843;
+  --garden-magenta-850: #500724;
+  --garden-magenta-900: #500724;
+  --garden-magenta-950: #500724;
+}
+
+/* Garden Light Theme */
+.theme-garden-light {
+  --color-bg-primary: var(--garden-paper);
+  --color-bg-primary-rgb: var(--garden-paper-rgb);
+  --color-inverted-rgb: var(--garden-black-rgb);
+  --color-bg-secondary: var(--garden-50);
+  --color-tx-normal: var(--garden-parsley);
+  --color-tx-normal-rgb: var(--garden-parsley-rgb);
+  --color-tx-muted: var(--garden-600);
+  --color-tx-faint: var(--garden-300);
+  --color-ui-normal: var(--garden-100);
+  --color-ui-hover: var(--garden-150);
+  --color-ui-muted: var(--garden-200);
+  --color-ui-active: var(--garden-200);
+  --color-highlight: var(--garden-yellow-100);
+  --color-action: var(--garden-perfume);
+  --color-bg-hover: var(--garden-purple-50);
+  --color-selection: rgba(226,182,243,0.3);
+  --color-re: var(--garden-red-600);
+  --color-re-hover: var(--garden-red-400);
+  --color-or: var(--garden-orange-600);
+  --color-or-hover: var(--garden-orange-400);
+  --color-ye: var(--garden-yellow-600);
+  --color-ye-hover: var(--garden-yellow-400);
+  --color-gr: var(--garden-parsley);
+  --color-gr-hover: var(--garden-green-400);
+  --color-cy: var(--garden-cyan-600);
+  --color-cy-hover: var(--garden-cyan-400);
+  --color-bl: var(--garden-blue-600);
+  --color-bl-hover: var(--garden-blue-400);
+  --color-pu: var(--garden-perfume);
+  --color-pu-hover: var(--garden-purple-400);
+  --color-ma: var(--garden-magenta-600);
+  --color-ma-hover: var(--garden-magenta-400);
+  
+  /* Lato font for all text */
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+/* Garden Dark Theme */
+.theme-garden-dark {
+  --color-bg-primary: var(--garden-black);
+  --color-bg-primary-rgb: var(--garden-black-rgb);
+  --color-inverted-rgb: var(--garden-paper-rgb);
+  --color-bg-secondary: var(--garden-950);
+  --color-tx-normal: var(--garden-perfume);
+  --color-tx-normal-rgb: var(--garden-perfume-rgb);
+  --color-tx-muted: var(--garden-300);
+  --color-tx-faint: var(--garden-700);
+  --color-ui-normal: var(--garden-900);
+  --color-ui-hover: var(--garden-850);
+  --color-ui-active: var(--garden-800);
+  --color-ui-muted: var(--garden-800);
+  --color-highlight: var(--garden-yellow-900);
+  --color-action: var(--garden-perfume-dark);
+  --color-bg-hover: var(--garden-green-950);
+  --color-selection: rgba(24,80,33,0.3);
+  --color-re: var(--garden-red-400);
+  --color-re-hover: var(--garden-red-600);
+  --color-or: var(--garden-orange-400);
+  --color-or-hover: var(--garden-orange-600);
+  --color-ye: var(--garden-yellow-400);
+  --color-ye-hover: var(--garden-yellow-600);
+  --color-gr: var(--garden-green-400);
+  --color-gr-hover: var(--garden-green-600);
+  --color-cy: var(--garden-cyan-400);
+  --color-cy-hover: var(--garden-cyan-600);
+  --color-bl: var(--garden-blue-400);
+  --color-bl-hover: var(--garden-blue-600);
+  --color-pu: var(--garden-perfume);
+  --color-pu-hover: var(--garden-purple-400);
+  --color-ma: var(--garden-magenta-400);
+  --color-ma-hover: var(--garden-magenta-600);
+  
+  /* Lato font for all text */
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+/* Override font for specific elements to ensure Lato font is used */
+.theme-garden-light *,
+.theme-garden-dark * {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Inter", "IBM Plex Sans", Segoe UI, Helvetica, Arial, sans-serif;
+}

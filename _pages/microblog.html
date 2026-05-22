@@ -1,0 +1,107 @@
+---
+layout: default
+title: Microblog
+---
+
+<div class="wrap">
+  <div class="microblog-feed">
+    {% if site.microblog.size > 0 %}
+      {% assign sorted_posts = site.microblog | sort: 'created' | reverse %}
+      {% for post in sorted_posts %}
+        <article class="microblog-post">
+          <div class="microblog-content">
+            {{ post.content | microblog_content }}
+          </div>
+          <div class="microblog-meta">
+            <time class="microblog-date">
+              {% comment %} Extract date from created field (YYYY-MM-DD format) {% endcomment %}
+              {% assign date_parts = post.created | split: '-' %}
+              {{ date_parts[1] }}/{{ date_parts[2] }}/{{ date_parts[0] }}
+            </time>
+            <a href="{{ post.url }}" class="microblog-permalink" title="Permalink">→</a>
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p class="muted">No microblog posts found.</p>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+    .microblog-feed {
+      margin: 0 auto;
+      margin-top: 4rem;
+    }
+    
+    .microblog-post {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-ui-normal);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(var(--color-inverted-rgb), 0.1);
+      transition: box-shadow 0.2s ease;
+    }
+    
+    .microblog-post:hover {
+      box-shadow: 0 2px 8px rgba(var(--color-inverted-rgb), 0.15);
+    }
+    
+    .microblog-content {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      color: var(--color-tx-normal);
+    }
+    
+    .microblog-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 8px 0;
+      box-shadow: 0 1px 3px rgba(var(--color-inverted-rgb), 0.1);
+    }
+    
+    .microblog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--color-tx-muted);
+    }
+    
+    .microblog-date {
+      font-weight: 500;
+    }
+    
+    .microblog-permalink {
+      text-decoration: none;
+      color: var(--color-tx-muted);
+      font-size: 16px;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+    
+    .microblog-permalink:hover {
+      opacity: 1;
+      color: var(--color-action);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {   
+      .microblog-post {
+        margin-bottom: 12px;
+        padding: 12px;
+      }
+      
+      .microblog-content {
+        font-size: 15px;
+      }
+      
+      .microblog-content img {
+        margin: 6px 0;
+        border-radius: 6px;
+      }
+    }
+</style>

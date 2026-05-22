@@ -1,0 +1,257 @@
+/* Minecraft Theme - Inspired by Minecraft with dirt block background */
+
+/* Minecraft Font Face */
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('/assets/misc/Minecraftia-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+  /* Minecraft Color Palette */
+  :root {
+    --minecraft-black: #1A1A1A;
+    --minecraft-black-rgb: 26,26,26;
+    --minecraft-paper: #1A1A1A;
+    --minecraft-paper-rgb: 26,26,26;
+    --minecraft-200-rgb: 180,180,180;
+    --minecraft-50: #2A2A2A;
+    --minecraft-100: #3A3A3A;
+    --minecraft-150: #4A4A4A;
+    --minecraft-200: #5A5A5A;
+    --minecraft-300: #6A6A6A;
+    --minecraft-400: #7A7A7A;
+    --minecraft-500: #8A8A8A;
+    --minecraft-600: #9A9A9A;
+    --minecraft-700: #AAAAAA;
+    --minecraft-800: #BABABA;
+    --minecraft-850: #CACACA;
+    --minecraft-900: #DADADA;
+    --minecraft-950: #EAEAEA;
+    --minecraft-white: #FFFFFF;
+    --minecraft-white-rgb: 255,255,255;
+    --minecraft-blue: #5555FF;
+    --minecraft-blue-rgb: 85,85,255;
+    --minecraft-red-50: #FEF2F2;
+    --minecraft-red-100: #FEE2E2;
+    --minecraft-red-150: #FECACA;
+    --minecraft-red-200: #FCA5A5;
+    --minecraft-red-300: #F87171;
+    --minecraft-red-400: #EF4444;
+    --minecraft-red-500: #DC2626;
+    --minecraft-red-600: #B91C1C;
+    --minecraft-red-700: #991B1B;
+    --minecraft-red-800: #7F1D1D;
+    --minecraft-red-850: #6B1A1A;
+    --minecraft-red-900: #5A1616;
+    --minecraft-red-950: #3F0F0F;
+    --minecraft-orange-50: #FFF7ED;
+    --minecraft-orange-100: #FFEDD5;
+    --minecraft-orange-150: #FED7AA;
+    --minecraft-orange-200: #FDBA74;
+    --minecraft-orange-300: #FB923C;
+    --minecraft-orange-400: #F97316;
+    --minecraft-orange-500: #EA580C;
+    --minecraft-orange-600: #DC2626;
+    --minecraft-orange-700: #B45309;
+    --minecraft-orange-800: #92400E;
+    --minecraft-orange-850: #78350F;
+    --minecraft-orange-900: #451A03;
+    --minecraft-orange-950: #2D1B00;
+    --minecraft-yellow-50: #FEFCE8;
+    --minecraft-yellow-100: #FEF3C7;
+    --minecraft-yellow-150: #FDE68A;
+    --minecraft-yellow-200: #FCD34D;
+    --minecraft-yellow-300: #FBBF24;
+    --minecraft-yellow-400: #F59E0B;
+    --minecraft-yellow-500: #D97706;
+    --minecraft-yellow-600: #B45309;
+    --minecraft-yellow-700: #92400E;
+    --minecraft-yellow-800: #78350F;
+    --minecraft-yellow-850: #451A03;
+    --minecraft-yellow-900: #2D1B00;
+    --minecraft-yellow-950: #1F1200;
+    --minecraft-green-50: #F0FDF4;
+    --minecraft-green-100: #DCFCE7;
+    --minecraft-green-150: #BBF7D0;
+    --minecraft-green-200: #86EFAC;
+    --minecraft-green-300: #4ADE80;
+    --minecraft-green-400: #22C55E;
+    --minecraft-green-500: #16A34A;
+    --minecraft-green-600: #15803D;
+    --minecraft-green-700: #166534;
+    --minecraft-green-800: #14532D;
+    --minecraft-green-850: #052E16;
+    --minecraft-green-900: #052E16;
+    --minecraft-green-950: #052E16;
+    --minecraft-cyan-50: #ECFEFF;
+    --minecraft-cyan-100: #CFFAFE;
+    --minecraft-cyan-150: #A5F3FC;
+    --minecraft-cyan-200: #67E8F9;
+    --minecraft-cyan-300: #22D3EE;
+    --minecraft-cyan-400: #06B6D4;
+    --minecraft-cyan-500: #0891B2;
+    --minecraft-cyan-600: #0E7490;
+    --minecraft-cyan-700: #155E75;
+    --minecraft-cyan-800: #164E63;
+    --minecraft-cyan-850: #083344;
+    --minecraft-cyan-900: #083344;
+    --minecraft-cyan-950: #083344;
+    --minecraft-blue-50: #EFF6FF;
+    --minecraft-blue-100: #DBEAFE;
+    --minecraft-blue-150: #BFDBFE;
+    --minecraft-blue-200: #93C5FD;
+    --minecraft-blue-300: #60A5FA;
+    --minecraft-blue-400: #3B82F6;
+    --minecraft-blue-500: #2563EB;
+    --minecraft-blue-600: #1D4ED8;
+    --minecraft-blue-700: #1E40AF;
+    --minecraft-blue-800: #1E3A8A;
+    --minecraft-blue-850: #172554;
+    --minecraft-blue-900: #172554;
+    --minecraft-blue-950: #172554;
+    --minecraft-purple-50: #FAF5FF;
+    --minecraft-purple-100: #F3E8FF;
+    --minecraft-purple-150: #E9D5FF;
+    --minecraft-purple-200: #DDD6FE;
+    --minecraft-purple-300: #C4B5FD;
+    --minecraft-purple-400: #A78BFA;
+    --minecraft-purple-500: #8B5CF6;
+    --minecraft-purple-600: #7C3AED;
+    --minecraft-purple-700: #6D28D9;
+    --minecraft-purple-800: #5B21B6;
+    --minecraft-purple-850: #4C1D95;
+    --minecraft-purple-900: #4C1D95;
+    --minecraft-purple-950: #4C1D95;
+    --minecraft-magenta-50: #FDF2F8;
+    --minecraft-magenta-100: #FCE7F3;
+    --minecraft-magenta-150: #FBCFE8;
+    --minecraft-magenta-200: #F9A8D4;
+    --minecraft-magenta-300: #F472B6;
+    --minecraft-magenta-400: #EC4899;
+    --minecraft-magenta-500: #DB2777;
+    --minecraft-magenta-600: #BE185D;
+    --minecraft-magenta-700: #9D174D;
+    --minecraft-magenta-800: #831843;
+    --minecraft-magenta-850: #500724;
+    --minecraft-magenta-900: #500724;
+    --minecraft-magenta-950: #500724;
+  }
+  
+  /* Minecraft Theme - Same for light and dark */
+  .theme-minecraft-light,
+  .theme-minecraft-dark {
+    --color-bg-primary: var(--minecraft-paper);
+    --color-bg-primary-rgb: var(--minecraft-paper-rgb);
+    --color-inverted-rgb: var(--minecraft-white-rgb);
+    --color-bg-secondary: var(--minecraft-50);
+    --color-tx-normal: var(--minecraft-white);
+    --color-tx-normal-rgb: var(--minecraft-white-rgb);
+    --color-tx-muted: var(--minecraft-600);
+    --color-tx-faint: var(--minecraft-300);
+    --color-ui-normal: var(--minecraft-100);
+    --color-ui-hover: var(--minecraft-150);
+    --color-ui-muted: var(--minecraft-200);
+    --color-ui-active: var(--minecraft-200);
+    --color-highlight: var(--minecraft-yellow-100);
+    --color-action: var(--minecraft-green-400);
+    --color-bg-hover: var(--minecraft-blue-50);
+    --color-selection: rgba(85,85,255,0.3);
+    --color-re: var(--minecraft-red-600);
+    --color-re-hover: var(--minecraft-red-400);
+    --color-or: var(--minecraft-orange-600);
+    --color-or-hover: var(--minecraft-orange-400);
+    --color-ye: var(--minecraft-yellow-600);
+    --color-ye-hover: var(--minecraft-yellow-400);
+    --color-gr: var(--minecraft-green-600);
+    --color-gr-hover: var(--minecraft-green-400);
+    --color-cy: var(--minecraft-cyan-600);
+    --color-cy-hover: var(--minecraft-cyan-400);
+    --color-bl: var(--minecraft-blue);
+    --color-bl-hover: var(--minecraft-blue-400);
+    --color-pu: var(--minecraft-purple-600);
+    --color-pu-hover: var(--minecraft-purple-400);
+    --color-ma: var(--minecraft-magenta-600);
+    --color-ma-hover: var(--minecraft-magenta-400);
+  }
+  
+  /* Minecraft-specific styles */
+  .theme-minecraft-light,
+  .theme-minecraft-dark {
+    /* Dirt block background */
+    background-image: url('/assets/misc/dirtblock.png');
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    background-attachment: fixed;
+    
+    /* Minecraft font for all text */
+    font-family: 'Minecraftia', monospace !important;
+  }
+  
+  /* Override font for specific elements to ensure Minecraft font is used */
+  .theme-minecraft-light *,
+  .theme-minecraft-dark * {
+    font-family: 'Minecraftia', monospace !important;
+  }
+  
+  /* Ensure proper contrast with dirt background */
+  .theme-minecraft-light,
+  .theme-minecraft-dark {
+    /* Add a subtle overlay to improve text readability */
+    position: relative;
+  }
+  
+  .theme-minecraft-light::before,
+  .theme-minecraft-dark::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.4);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Ensure content is above the overlay */
+  .theme-minecraft-light > *,
+  .theme-minecraft-dark > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .theme-minecraft-light #theme-toggle,
+  .theme-minecraft-dark #theme-toggle {
+    display: none;
+  }
+
+  .theme-minecraft-light .microblog-post,
+  .theme-minecraft-dark .microblog-post {
+    position: relative;
+    justify-content: center;
+    text-align: left;
+    background: black !important;
+    border: darkgray solid 3px !important;
+    border-radius: 0px !important;
+    padding-top: 16px;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .theme-minecraft-light #theme-dice,
+  .theme-minecraft-dark #theme-dice {
+    margin-bottom: 12px;
+  }
+
+  .theme-minecraft-light hr,
+  .theme-minecraft-dark hr {
+    height: 2px !important;
+  }
+
+  .theme-minecraft-light footer,
+  .theme-minecraft-dark footer {
+    border-top:2px solid var(--color-ui-muted) !important;
+  }

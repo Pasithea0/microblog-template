@@ -1,0 +1,38 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:rsl="https://rslstandard.org/rsl">
+  <channel>
+    <title>{{ site.title }} - Microblog</title>
+    <description>Microblog posts from {{ site.title }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/microblog/</link>
+    <atom:link href="{{ site.url }}{{ site.baseurl }}/microblog.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <managingEditor>{{ site.email | default: site.author_email }} ({{ site.author | default: site.title }})</managingEditor>
+    <webMaster>{{ site.email | default: site.author_email }} ({{ site.author | default: site.title }})</webMaster>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.microblog limit:20 %}
+      <item>
+        <title>{{ post.content | strip_html | strip }}</title>
+        <description><![CDATA[{{ post.content }}]]></description>
+        <pubDate>{{ post.created | date_to_rfc822 }}</pubDate>
+        <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
+        <reply-to>{{ site.email }}?subject=Re: {{ post.title | url_encode }}</reply-to>
+        {% if post.tags.size > 0 %}
+          {% for tag in post.tags %}
+            <category>{{ tag }}</category>
+          {% endfor %}
+        {% endif %}
+        <rsl:content url="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+          <rsl:license>
+            <rsl:prohibits type="usage">train-ai</rsl:prohibits>
+          </rsl:license>
+        </rsl:content>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<main>
+  <heading>
+    <h1>{{ page.title }}</h1>
+    <div class="metadata muted ms2 font-ui">
+      {% if page.date_priority %}
+        <time datetime="{{ page.date_priority | date: '%Y-%m-%d' }}">{{ page.date_priority | date: "%B %d, %Y" }}</time>
+      {% endif %}
+      {% if page.tags.size > 0 %}
+        · <span title="tags">{{ page.tags | join: ', ' }}</span>
+      {% endif %}
+      · <span class="reading-time">{{ content | reading_time }}</span>
+    </div>
+  </heading>
+
+  <article> 
+    {{ content | auto_link }}
+  </article>
+
+  {% if page.tags.size > 0 %}
+  <hr>
+  
+  <div class="wrap">
+    <p class="muted font-ui">You might also enjoy</p>
+    <ul>
+      {% assign related_notes = site.writing | where_exp: "note", "note.url != page.url" %}
+      {% assign related_count = 0 %}
+      {% for note in related_notes %}
+        {% for tag in note.tags %}
+          {% if page.tags contains tag and related_count < 9 %}
+            {% assign related_count = related_count | plus: 1 %}
+            <li><a href="{{ note.url | relative_url }}" class="internal-link">{{ note.title }}</a></li>
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</main>

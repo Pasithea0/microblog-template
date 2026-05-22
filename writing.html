@@ -1,0 +1,62 @@
+---
+layout: default
+title: Writing
+description: Ideas, essays, and projects by Cüppa. Latest writing on technology, health, and privacy.
+---
+
+<div class="wrap">
+
+  <p class="muted font-ui">Latest</p>
+
+  {% assign latest_note = site.writing.first %}
+  {% if latest_note %}
+  <div>
+    <a href="{{ latest_note.url | relative_url }}" class="plain">
+      <h2>{{ latest_note.title }}</h2>
+      <div class="metadata muted small pb font-ui internal-link">
+        <time datetime="{{ latest_note.date_priority | date: '%Y-%m-%d' }}">{{ latest_note.date_priority | date: "%B %d, %Y" }}</time>
+        {% if latest_note.tags.size > 0 %}
+          · <span title="tags">{{ latest_note.tags | join: ', ' }}</span>
+        {% endif %}
+        · <span class="reading-time">{{ latest_note.content | reading_time }}</span>
+      </div>
+      {% if latest_note.description %}
+      <div class="small muted internal-link">
+        {{ latest_note.description }} Keep reading →
+      </div>
+      {% endif %}
+    </a>
+  </div>
+  {% endif %}
+
+  <hr class="mn2 ms2">
+
+  <p class="muted font-ui"><a href="/topics" class="muted internal-link">Topics</a></p>
+
+  {% assign all_tags = site.writing | map: 'tags' | flatten | uniq | sort %}
+  <div class="line-height-loose">
+    {% for tag in all_tags %}
+      <a href="/topics/{{ tag | slugify }}" class="internal-link">{{ tag }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
+    {% endfor %}
+  </div>
+
+  <hr class="mn2 ms2">
+
+  <p class="muted font-ui"><a href="/writing" class="muted internal-link">Writing</a></p>
+
+  <ul class="list-plain tabular-nums">
+    {% for note in site.writing %}
+    <li>
+      <a href="{{ note.url | relative_url }}" class="internal-link plain">
+        <div class="flex align-baseline">
+          <span class="muted ppr flex-shrink small nowrap font-ui ssr mh">
+            {{ note.date_priority | date: "%Y · %m" }}
+          </span> 
+          <u class="text-truncate">{{ note.title }}</u>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+</div>

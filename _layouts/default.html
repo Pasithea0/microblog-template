@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip | truncate: 160 }}{% elsif content %}{{ content | strip_html | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Author -->
+    <meta name="author" content="{{ site.title }}">
+    <meta name="publisher" content="{{ site.title }}">
+    
+    <!-- Bot blocking -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, nocache">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="duckduckbot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="baiduspider" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="yandexbot" content="noindex, nofollow, noarchive, nosnippet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip | truncate: 160 }}{% elsif content %}{{ content | strip_html | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:image" content="{% if page.layout == 'post' %}{{ site.url }}{{ site.baseurl }}/assets/thumbnails/{{ page.slug }}.png{% else %}{{ site.url }}{{ site.baseurl }}/assets/thumbnails/site-thumbnail.png{% endif %}">
+    <meta property="og:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.layout == 'post' and page.date_priority %}
+    <meta property="article:published_time" content="{{ page.date_priority | date_to_xmlschema }}">
+    {% endif %}
+    {% if page.tags %}
+    {% for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}">
+    {% endfor %}
+    {% endif %}
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip | truncate: 160 }}{% elsif content %}{{ content | strip_html | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.layout == 'post' %}{{ site.url }}{{ site.baseurl }}/assets/thumbnails/{{ page.slug }}.png{% else %}{{ site.url }}{{ site.baseurl }}/assets/thumbnails/site-thumbnail.png{% endif %}">
+    <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    
+    <link rel="license" type="application/rsl+xml" href="{{ site.url }}{{ site.baseurl }}/license.rsl">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/flexoki.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/aurora.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/matcha.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/cappuccino.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/garden.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/forest.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/pumpkin.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/themes/minecraft.css' | relative_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} - Writing" href="{{ '/feed.xml' | relative_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} - Microblog" href="{{ '/microblog.xml' | relative_url }}">
+</head>
+<body>
+    <script>
+      // Initialize theme system
+      const themes = ['flexoki', 'cappuccino', 'pumpkin', 'aurora', 'garden', 'minecraft'];
+      const modes = ['light', 'dark'];
+      
+      function getStoredTheme() {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+          const [theme, mode] = stored.split('-');
+          return { theme: theme || 'flexoki', mode: mode || 'light' };
+        }
+        return { theme: 'flexoki', mode: 'light' };
+      }
+      
+      function setTheme(theme, mode) {
+        // Remove all theme classes
+        document.body.className = document.body.className.replace(/theme-\w+-\w+/g, '');
+        // Add new theme class
+        document.body.classList.add(`theme-${theme}-${mode}`);
+        // Store theme
+        localStorage.setItem('theme', `${theme}-${mode}`);
+      }
+      
+      function initializeTheme() {
+        const { theme, mode } = getStoredTheme();
+        
+        // Check for dark mode preference if no stored theme
+        if (!localStorage.getItem('theme')) {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          setTheme('flexoki', prefersDark ? 'dark' : 'light');
+        } else {
+          setTheme(theme, mode);
+        }
+      }
+      
+      initializeTheme();
+    </script>
+
+    <nav class="flex align-center font-ui">
+      <span class="flex-grow">
+          <a class="internal-link plain" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          {% if page.layout == 'post' %}
+              <span class="faint">/</span> <a href="/writing" class="muted plain">Writing</a>
+          {% elsif page.layout == 'micro' %}
+              <span class="faint">/</span> <a href="/microblog" class="muted plain">Microblog</a>
+          {% elsif page.title == 'Topics' %}
+              <span class="faint">/</span> <a href="/topics" class="muted plain">Topics</a>
+          {% elsif page.title == 'Writing' %}
+              <span class="faint">/</span> <a href="/writing" class="muted plain">Writing</a>
+          {% elsif page.title == 'About' %}
+              <span class="faint">/</span> <a href="/about" class="muted plain">About</a>
+          {% elsif page.title == 'Subscribe' %}
+              <span class="faint">/</span> <a href="/subscribe" class="muted plain">Subscribe</a>
+          {% elsif page.title == 'Microblog' %}
+              <span class="faint">/</span> <a href="/microblog" class="muted plain">Microblog</a>
+          {% elsif page.url contains '/topics/' and page.url != '/topics/' and page.url != '/topics' %}
+              <span class="faint">/</span> <a href="/topics" class="muted plain">Topics</a>
+          {% endif %}
+      </span>
+      <span class="ssr ssl nav-links">
+          <a href="/microblog" class="muted plain ssr nav-link">Microblog</a>
+          <a href="/about" class="muted plain nav-link">About</a>
+          <!-- <a href="/now" class="muted plain ssl">Now</a> -->
+      </span>
+      <div class="theme-controls">
+          <span id="theme-toggle" class="sssr" title="Toggle dark mode" aria-label="Toggle dark mode" type="button"></span>
+          <span id="theme-dice" title="Cycle theme" aria-label="Cycle theme" type="button"></span>
+      </div>
+    </nav>
+    
+    <main>
+        {% if page.layout == 'default' and page.collection == 'pages' %}
+        <div class="wrap">
+          <heading>
+            <h1>{{ page.title }}</h1>
+          </heading>
+          
+          <article class="no-preview">
+            {{ content }}
+          </article>
+        </div>
+        {% else %}
+        {{ content }}
+        {% endif %}
+    </main>
+    
+    <footer>
+      <div class="pn2 bt">
+        <p style="display: flex; justify-content: space-between; width: 100%; font-size: 0.8em;">
+          <span><a href="mailto:{{ site.email }}{% if page.layout == 'post' or page.layout == 'micro' %}?subject=Re: {{ page.title | url_encode }}&body=See my PGP key! {{ site.url }}/pgp/{% else %}?subject=Contact from {{ site.title }}&body=See my PGP key! {{ site.url }}/pgp/{% endif %}" class="internal-link">email me</a> <span class="faint">/</span> <a href="/subscribe" class="internal-link">subscribe</a></span>
+          <span style="text-align: right;"><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" class="internal-link">CC BY-NC 4.0</a> unless otherwise noted</span>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      var darkModeToggle = document.querySelector("#theme-toggle");
+      var diceButton = document.querySelector("#theme-dice");
+
+      function getCurrentTheme() {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+          const [theme, mode] = stored.split('-');
+          return { theme: theme || 'pumpkin', mode: mode || 'light' };
+        }
+        return { theme: 'pumpkin', mode: 'light' };
+      }
+
+      function toggleTheme() {
+        const { theme, mode } = getCurrentTheme();
+        const newMode = mode === 'light' ? 'dark' : 'light';
+        setTheme(theme, newMode);
+        updateThemeState();
+      }
+
+      function cycleTheme() {
+        const { theme, mode } = getCurrentTheme();
+        const currentIndex = themes.indexOf(theme);
+        const nextIndex = (currentIndex + 1) % themes.length;
+        const nextTheme = themes[nextIndex];
+        // Keep the current mode, only change the theme
+        setTheme(nextTheme, mode);
+        updateThemeState();
+      }
+
+      function updateThemeState() {
+        const { theme, mode } = getCurrentTheme();
+        const isDarkMode = mode === 'dark';
+        darkModeToggle.setAttribute("aria-checked", isDarkMode.toString());
+        
+        if (isDarkMode) {
+          darkModeToggle.style.webkitMaskImage = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'currentColor\' viewBox=\'0 0 24 24\' %3E%3Cpath d=\'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z\' /%3E%3C/svg%3E")';
+        } else {          
+          darkModeToggle.style.webkitMaskImage = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\' fill=\'currentColor\' %3E%3Cpath fill-rule=\'evenodd\' d=\'M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z\' clip-rule=\'evenodd\' /%3E%3C/svg%3E")';
+        }
+      }
+
+      function initializeThemeControls() {
+        updateThemeState();
+      }
+
+      darkModeToggle.addEventListener("click", toggleTheme);
+      diceButton.addEventListener("click", cycleTheme);
+
+      window.addEventListener('keydown', function(e) {
+          if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+            return;
+          }
+          if ((e.key === 'd' || e.key === 'D') && !e.ctrlKey && !e.metaKey) {
+            toggleTheme();
+          }
+          if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey) {
+            cycleTheme();
+          }
+      });
+
+
+      initializeThemeControls();
+    </script>
+</body>
+</html>
