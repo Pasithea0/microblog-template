@@ -1,6 +1,10 @@
+![](/assets/thumbnails/site-thumbnail.png)
+
 # Pasithea0's Microblog Template
 
 This site is built with [Jekyll](https://jekyllrb.com/) and uses a simple, clean design focused on readability. The content is written in Markdown and automatically compiled into web pages. It takes (a lot of) inspiration from [stephango.com](https://stephango.com/) with some modifications and my own design touch.
+
+Preview: https://pasithea0.github.io/microblog-template/
 
 ## Features:
 

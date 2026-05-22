@@ -2,7 +2,7 @@
 title: "Cüppa"
 description: "Ideas, essays, and projects by Cüppa"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "https://pasithea0.github.io/microblog-template" # the base hostname & protocol for your site
 email: "your-email@example.com"
 
 # Build settings
