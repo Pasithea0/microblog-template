@@ -30,11 +30,13 @@ module Jekyll
       
       # Encode the favicon as base64 (convert ICO to PNG for better compatibility)
       favicon_path = File.join(site.source, 'assets', 'favicon.ico')
+      png_favicon_path = File.join(site.source, 'assets', 'favicon.png')
       
-      if File.exist?(favicon_path)
-        # Try to convert ICO to PNG first for better SVG compatibility
-        png_favicon_path = File.join(site.source, 'assets', 'favicon.png')
-        
+      if File.exist?(png_favicon_path)
+        favicon_data = File.binread(png_favicon_path)
+        site.data['favicon_base64'] = "data:image/png;base64,#{Base64.strict_encode64(favicon_data)}"
+        Jekyll.logger.info "ImageEncoder:", "Used existing favicon.png and encoded as base64"
+      elsif File.exist?(favicon_path)
         # Convert ICO to PNG using ImageMagick
         if system("which magick > /dev/null 2>&1")
           system("magick \"#{favicon_path}\" \"#{png_favicon_path}\"")
@@ -55,7 +57,7 @@ module Jekyll
           Jekyll.logger.info "ImageEncoder:", "Encoded favicon.ico as base64 (#{favicon_base64.length} characters)"
         end
       else
-        Jekyll.logger.warn "ImageEncoder:", "favicon.ico not found at #{favicon_path}"
+        Jekyll.logger.warn "ImageEncoder:", "favicon not found at #{png_favicon_path} or #{favicon_path}"
       end
     end
   end
