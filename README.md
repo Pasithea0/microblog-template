@@ -47,16 +47,18 @@ The site will be available at `http://localhost:4000`
 
 Thumbnails are auto-generated during CI — no local steps needed.
 
-1. Push your changes to GitHub:
-   ```bash
-   git add -A
-   git commit -m "your message"
-   git push
-   ```
+**Cloudflare Pages:**
 
-2. GitHub Actions builds the site, generates thumbnails, and deploys to Pages automatically.
+Set your build command in the CF Pages dashboard to:
+```
+bash build.sh
+```
 
-Or point Cloudflare Pages at your repo — it runs the same Jekyll build with `JEKYLL_ENV=production` and generates thumbnails on its own.
+Build output directory: `_site`
+
+**GitHub Pages:**
+
+Push to your repo — the included `.github/workflows/pages.yml` calls `build.sh` automatically.
 
 ### Available Scripts
 
