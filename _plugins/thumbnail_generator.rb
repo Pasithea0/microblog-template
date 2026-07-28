@@ -214,18 +214,47 @@ module Jekyll
       create_fallback_png(png_path)
     end
 
-    def create_fallback_png(png_path)
-      # Create a simple fallback PNG using Ruby's built-in capabilities
-      # This is a basic implementation - in production you might want to use a proper image library
-      require 'base64'
-      
-      # Create a simple 1200x630 PNG with a solid color background
-      # This is a minimal PNG file (1x1 pixel, scaled by CSS)
-      png_data = Base64.decode64("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
-      
-      # For now, just copy the SVG as a fallback (not ideal but functional)
-      # In a real implementation, you'd want to use a proper image generation library
-      File.write(png_path, png_data)
+    def create_fallback_png(png_path, r: 45, g: 74, b: 45)
+      # Pure-Ruby PNG generator — no system deps needed.
+      # Creates a 1200x630 solid-color PNG using only Ruby stdlib (Zlib).
+      # The color defaults to dark green (#2d4a2d) matching the SVG fallback.
+      require 'stringio'
+      require 'zlib'
+
+      width = 1200
+      height = 630
+
+      # Build one row: filter byte (0 = None) + RGB pixels
+      row = [0]
+      width.times { row.push(r, g, b) }
+      row_bytes = row.pack('C*')
+      raw_data = row_bytes * height
+
+      compressed = Zlib.deflate(raw_data, Zlib::BEST_COMPRESSION)
+
+      io = StringIO.new
+      io.binmode
+
+      # PNG signature
+      io.write([0x89504E470D0A1A0A].pack('Q>'))
+
+      # IHDR chunk
+      write_png_chunk(io, 'IHDR', [width, height, 8, 2, 0, 0, 0].pack('NNCCCCC'))
+
+      # IDAT chunk
+      write_png_chunk(io, 'IDAT', compressed)
+
+      # IEND chunk
+      write_png_chunk(io, 'IEND', '')
+
+      File.binwrite(png_path, io.string)
+    end
+
+    def write_png_chunk(io, type, data)
+      io.write([data.bytesize].pack('N'))
+      io.write(type)
+      io.write(data)
+      io.write([Zlib.crc32(type + data)].pack('N'))
     end
   end
 end

@@ -19,5 +19,8 @@
     "clean": "bundle exec jekyll clean && rm -rf assets/thumbnails",
     "generate-thumbnails": "JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.thumbnails.yml"
   },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  },
   "packageManager": "pnpm@11.3.0"
 }

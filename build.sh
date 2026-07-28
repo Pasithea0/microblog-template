@@ -11,10 +11,21 @@
 
 set -e
 
-echo ":: Installing SVG renderer for thumbnail generation..."
-apt-get update -qq && apt-get install -y -qq librsvg2-bin
+echo ":: Installing SVG renderer for thumbnail generation (optional)..."
+if apt-get update -qq 2>/dev/null && apt-get install -y -qq librsvg2-bin 2>/dev/null; then
+  echo "    (using rsvg-convert)"
+else
+  echo "    (using Node.js resvg)"
+fi
 
 echo ":: Building Jekyll site (production)..."
 JEKYLL_ENV=production bundle exec jekyll build "$@"
+
+# Convert SVGs to PNGs for social media thumbnails
+# If rsvg-convert wasn't installed, use the Node.js fallback
+if ! command -v rsvg-convert &> /dev/null; then
+  echo ":: Converting SVG thumbnails to PNG (Node.js)..."
+  node scripts/convert-thumbnails.mjs
+fi
 
 echo ":: Build complete"
