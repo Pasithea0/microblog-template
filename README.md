@@ -9,11 +9,11 @@ Preview: https://pasithea0.github.io/microblog-template/
 ## Features:
 
 - Markdown content with support for images, quotes, and lists. Designed to support Obsidian-style fontmatter and attachments
-- Auto-generated thumbnails for social media sharing
+- Auto-generated thumbnails for social media sharing (generated during CI build)
 - Reading time calculation for each post
 - Tag-based topic pages
 - Responsive design for mobile and desktop
-- Static site generation for GitHub Pages
+- Static site generation for GitHub Pages / Cloudflare Pages
 
 ## Getting Started
 
@@ -21,7 +21,6 @@ Preview: https://pasithea0.github.io/microblog-template/
 
 - Ruby (with gem)
 - pnpm
-- ImageMagick (for thumbnail generation)
 
 ### Installation
 
@@ -35,18 +34,6 @@ Preview: https://pasithea0.github.io/microblog-template/
    bundle install
    ```
 
-3. Install ImageMagick (required for thumbnail generation):
-   ```bash
-   # macOS
-   brew install imagemagick
-   
-   # Ubuntu/Debian
-   sudo apt-get install imagemagick
-   
-   # Windows (using Chocolatey)
-   choco install imagemagick
-   ```
-
 ### Development
 
 Start the development server with live reload:
@@ -56,33 +43,42 @@ pnpm run dev
 
 The site will be available at `http://localhost:4000`
 
+### Deploying
+
+Thumbnails are auto-generated during CI — no local steps needed.
+
+1. Push your changes to GitHub:
+   ```bash
+   git add -A
+   git commit -m "your message"
+   git push
+   ```
+
+2. GitHub Actions builds the site, generates thumbnails, and deploys to Pages automatically.
+
+Or point Cloudflare Pages at your repo — it runs the same Jekyll build with `JEKYLL_ENV=production` and generates thumbnails on its own.
+
 ### Available Scripts
 
 - `pnpm run dev` - Start development server with live reload
 - `pnpm run build` - Build the site for production
 - `pnpm run serve` - Start a simple server (without live reload)
 - `pnpm run clean` - Clean the build directory and thumbnails
-- `pnpm run generate-thumbnails` - Generate PNG thumbnails for social media sharing
+- `pnpm run generate-thumbnails` - Manually generate thumbnails (only needed for local testing)
 
 ### Thumbnail Generation
 
-**Important**: Thumbnails MUST be generated manually on your device before deployment. The build process no longer automatically generates thumbnails.
+Thumbnails are **automatically generated** during your CI build (GitHub Pages or Cloudflare Pages) when you push your changes. The build sets `JEKYLL_ENV=production`, which triggers the SVG thumbnail generator and converts them to PNG using `rsvg-convert` (installed via `librsvg2-bin` on the CI runner).
 
-Start by adding `thumb.png` and `favicon.ico` to the assets folder. the favicon will be converted to png automatically.
+No local ImageMagick, no separate command, no manual steps.
 
-To generate thumbnails for your posts:
+If you want to preview thumbnails locally, you can run:
 
-1. Ensure ImageMagick is installed (see Prerequisites)
-2. Run the thumbnail generation command:
-   ```bash
-   pnpm run generate-thumbnails
-   ```
-3. This will create both SVG and PNG versions of thumbnails in `assets/thumbnails/`:
-   - Individual post thumbnails: `{post-slug}.svg` and `{post-slug}.png`
-   - Site thumbnail: `site-thumbnail.svg` and `site-thumbnail.png` (used for home page and other non-post pages)
-4. The PNG versions are used for social media sharing (iMessage, Twitter, etc.)
+```bash
+JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.thumbnails.yml
+```
 
-**Note**: Thumbnails are only generated in production mode (`JEKYLL_ENV=production`) to ensure proper image encoding and conversion.
+Start by adding `thumb.png` and `favicon.ico` to the assets folder. The favicon will be converted to PNG automatically.
 
 ### Adding Content
 
