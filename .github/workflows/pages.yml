@@ -25,8 +25,10 @@ jobs:
         with:
           ruby-version: ruby
           bundler-cache: true
+      - name: Install SVG renderer (for post thumbnails)
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
       - name: Build with Jekyll
-        run: bundle exec jekyll build --trace --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: JEKYLL_ENV=production bundle exec jekyll build --trace --baseurl "${{ steps.pages.outputs.base_path }}"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
