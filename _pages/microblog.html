@@ -6,7 +6,7 @@ title: Microblog
 <div class="wrap">
   <div class="microblog-feed">
     {% if site.microblog.size > 0 %}
-      {% assign sorted_posts = site.microblog | sort: 'created' | reverse %}
+      {% assign sorted_posts = site.microblog | sort_microblog %}
       {% for post in sorted_posts %}
         <article class="microblog-post">
           <div class="microblog-content">

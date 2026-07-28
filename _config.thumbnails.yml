@@ -28,3 +28,4 @@ exclude:
   - _plugins/obsidian_preprocessor.rb
   - _plugins/reading_time.rb
   - _plugins/topic_generator.rb
+  - _plugins/microblog_sort.rb
